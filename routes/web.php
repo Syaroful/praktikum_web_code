@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,11 +24,7 @@ route::get('/about', function () {
         'tittle' => 'About'
     ]);
 });
-route::get('/blog', function () {
-    return view('blog',[
-        'tittle' => 'Blog'
-    ]);
-});
+route::get('/blog', [BlogController::class, 'index']);
 route::get('/contact', function () {
     return view('contact',[
         'tittle' => 'Contact Us'
