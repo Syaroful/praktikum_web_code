@@ -12,7 +12,7 @@ class BlogSeeder extends Seeder
      */
     public function run(): void
     {
-        //
-
+        //seeder for Blog table
+        
     }
 }

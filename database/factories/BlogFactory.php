@@ -17,7 +17,11 @@ class BlogFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => $this->faker->sentence(),
+            'excerpt' => $this->faker->paragraph(),
+            'content' => $this->faker->paragraphs(3, true),
+            'image' => $this->faker->imageUrl(),
+            'published_at' => $this->faker->dateTimeBetween('-1 month', '+3 days'),
         ];
     }
 }

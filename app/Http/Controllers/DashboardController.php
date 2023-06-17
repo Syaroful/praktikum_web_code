@@ -3,21 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
-use App\Http\Requests\StoreBlogRequest;
-use App\Http\Requests\UpdateBlogRequest;
+use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('blog',[
-            'tittle' => 'Blog',
+        return view('index', [
+            //get all blog data
+            'tittle' => 'Home',
             'blogs' => Blog::All(),
         ]);
     }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -29,7 +30,7 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBlogRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -37,7 +38,7 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Blog $blog)
+    public function show(string $id)
     {
         //
     }
@@ -45,7 +46,7 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blog $blog)
+    public function edit(string $id)
     {
         //
     }
@@ -53,7 +54,7 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBlogRequest $request, Blog $blog)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -61,7 +62,7 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Blog $blog)
+    public function destroy(string $id)
     {
         //
     }
