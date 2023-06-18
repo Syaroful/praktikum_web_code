@@ -9,6 +9,21 @@ class Student extends Model
 {
     use HasFactory;
     // delete tabel timestamps
+    protected $table = 'students';
     public $timestamps = false;
+    protected $primaryKey = 'nim';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+
+    protected $fillable = [
+        'nim',
+        'nama',
+        'kelas',
+        'jurusan',
+        'nomor_hp',
+    ];
 }
