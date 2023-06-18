@@ -5,24 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\StoreStudentRequest;
-use App\Http\Requests\UpdateStudentRequest;
 
 class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //fungsi eloquent menampilkan data menggunakan pagination
-        // $students = Student::all(); // Mengambil semua isi tabel
-        $students = DB::table('students')->paginate(5);
-        return view('student.index')->with('students', $students);
-        // $posts = Student::orderBy('nim', 'desc')->paginate(5);
-        // return view('student.index', compact('students'));
-        // with('i', (request()->input('page', 1) - 1) * 5);
 
+        if ($request->has('search')) {
+            $students = Student::where('nama', 'Like', '%' . $request->search . '%')->paginate(5);
+        } else {
+            $students = DB::table('students')->paginate(5);
+        }
+        return view('student.index')->with('students', $students);
     }
 
     /**

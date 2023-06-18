@@ -2,11 +2,18 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left mt-2">
+        <div class="col-lg-12 mb-2">
+            <div class="text-center my-5">
                 <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
             </div>
-            <div class="float-right my-2">
+
+            <div class="float-left my-2 col-md-5">
+                <form action="" method="get">
+                    <input type="text" class="form-control" id="search" name="search" placeholder="Search">
+                </form>
+            </div>
+
+            <div class="float-right my-2 col-md-2">
                 <a class="btn btn-success" href="{{ route('student.create') }}"> Input student</a>
             </div>
         </div>
@@ -30,7 +37,7 @@
         </tr>
         @foreach ($students as $index => $student)
             <tr>
-                <td>{{ $students->firstItem() + $index}}</td>
+                <td>{{ $students->firstItem() + $index }}</td>
                 <td>{{ $student->nim }}</td>
                 <td>{{ $student->nama }}</td>
                 <td>{{ $student->kelas }}</td>
@@ -39,8 +46,10 @@
                 <td>
                     <form action="{{ route('student.destroy', $student->nim) }}" method="POST">
 
-                        <a class="btn btn-info" href="{{ route('student.show', $student->nim) }}"><i class='bx bxs-show'></i></a>
-                        <a class="btn btn-primary" href="{{ route('student.edit', $student->nim) }}"><i class='bx bxs-edit'></i></a>
+                        <a class="btn btn-info" href="{{ route('student.show', $student->nim) }}"><i
+                                class='bx bxs-show'></i></a>
+                        <a class="btn btn-primary" href="{{ route('student.edit', $student->nim) }}"><i
+                                class='bx bxs-edit'></i></a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger"><i class='bx bx-trash-alt'></i></button>
