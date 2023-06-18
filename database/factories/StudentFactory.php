@@ -17,11 +17,11 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'nim' => $this->faker->unique()->numerify('##########'),
+            'nama' => $this->faker->name(),
+            'nim' => $this->faker->unique()->numerify('2141720###'),
             'kelas' => $this->faker->randomElement(['1A', '1B', '2A', '2B']),
-            'jurusan' => $this->faker->randomElement(['Teknik Informatika', 'Sistem Informasi', 'Teknik Komputer']),
-            'nomoe_hp' => $this->faker->unique()->numerify('##########'),
+            'jurusan' => $this->faker->randomElement(['Teknik Informatika', 'Sistem Informasi']),
+            'nomor_hp' => $this->faker->unique()->numerify('08##########'),
         ];
     }
 }
